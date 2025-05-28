@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data-extraction-rules>
+    <cloud-backup>
+        <!-- Include app preferences for cloud backup -->
+        <include domain="sharedpref" path="SMSEmailForwarderPrefs.xml"/>
+        
+        <!-- Exclude sensitive credentials -->
+        <exclude domain="sharedpref" path="SMSEmailForwarderPrefs.xml" requiredFlags="clientSideEncryption"/>
+    </cloud-backup>
+    
+    <device-transfer>
+        <!-- Allow settings transfer between devices -->
+        <include domain="sharedpref" path="SMSEmailForwarderPrefs.xml"/>
+    </device-transfer>
+</data-extraction-rules> 

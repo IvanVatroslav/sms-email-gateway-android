@@ -1,0 +1,495 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.smsemailforwarder.app"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="23"
+9        android:targetSdkVersion="34" />
+10
+11    <!-- Required permissions for SMS-to-Email functionality -->
+12    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+12-->C:\Users\grdop\sms-email-gateway-android\sms-email-gateway-android\app\src\main\AndroidManifest.xml:6:5-70
+12-->C:\Users\grdop\sms-email-gateway-android\sms-email-gateway-android\app\src\main\AndroidManifest.xml:6:22-67
+13    <uses-permission android:name="android.permission.READ_SMS" />
+13-->C:\Users\grdop\sms-email-gateway-android\sms-email-gateway-android\app\src\main\AndroidManifest.xml:7:5-67
+13-->C:\Users\grdop\sms-email-gateway-android\sms-email-gateway-android\app\src\main\AndroidManifest.xml:7:22-64
+14    <uses-permission android:name="android.permission.INTERNET" />
+14-->C:\Users\grdop\sms-email-gateway-android\sms-email-gateway-android\app\src\main\AndroidManifest.xml:8:5-67
+14-->C:\Users\grdop\sms-email-gateway-android\sms-email-gateway-android\app\src\main\AndroidManifest.xml:8:22-64
+15    <uses-permission android:name="android.permission.WAKE_LOCK" />
+15-->C:\Users\grdop\sms-email-gateway-android\sms-email-gateway-android\app\src\main\AndroidManifest.xml:9:5-68
+15-->C:\Users\grdop\sms-email-gateway-android\sms-email-gateway-android\app\src\main\AndroidManifest.xml:9:22-65
+16    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+16-->C:\Users\grdop\sms-email-gateway-android\sms-email-gateway-android\app\src\main\AndroidManifest.xml:10:5-81
+16-->C:\Users\grdop\sms-email-gateway-android\sms-email-gateway-android\app\src\main\AndroidManifest.xml:10:22-78
+17    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+17-->C:\Users\grdop\sms-email-gateway-android\sms-email-gateway-android\app\src\main\AndroidManifest.xml:11:5-77
+17-->C:\Users\grdop\sms-email-gateway-android\sms-email-gateway-android\app\src\main\AndroidManifest.xml:11:22-74
+18    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+18-->C:\Users\grdop\sms-email-gateway-android\sms-email-gateway-android\app\src\main\AndroidManifest.xml:12:5-77
+18-->C:\Users\grdop\sms-email-gateway-android\sms-email-gateway-android\app\src\main\AndroidManifest.xml:12:22-74
+19
+20    <!-- For Android 12+ background service restrictions -->
+21    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+21-->C:\Users\grdop\sms-email-gateway-android\sms-email-gateway-android\app\src\main\AndroidManifest.xml:15:5-79
+21-->C:\Users\grdop\sms-email-gateway-android\sms-email-gateway-android\app\src\main\AndroidManifest.xml:15:22-76
+22
+23    <!-- Optional: for requesting battery optimization exclusion -->
+24    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
+24-->C:\Users\grdop\sms-email-gateway-android\sms-email-gateway-android\app\src\main\AndroidManifest.xml:18:5-95
+24-->C:\Users\grdop\sms-email-gateway-android\sms-email-gateway-android\app\src\main\AndroidManifest.xml:18:22-92
+25
+26    <!-- File operations for backup/restore functionality -->
+27    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+27-->C:\Users\grdop\sms-email-gateway-android\sms-email-gateway-android\app\src\main\AndroidManifest.xml:21:5-80
+27-->C:\Users\grdop\sms-email-gateway-android\sms-email-gateway-android\app\src\main\AndroidManifest.xml:21:22-77
+28    <uses-permission
+28-->C:\Users\grdop\sms-email-gateway-android\sms-email-gateway-android\app\src\main\AndroidManifest.xml:22:5-23:38
+29        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+29-->C:\Users\grdop\sms-email-gateway-android\sms-email-gateway-android\app\src\main\AndroidManifest.xml:22:22-78
+30        android:maxSdkVersion="28" />
+30-->C:\Users\grdop\sms-email-gateway-android\sms-email-gateway-android\app\src\main\AndroidManifest.xml:23:9-35
+31    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+31-->[androidx.work:work-runtime:2.9.0] C:\Users\grdop\.gradle\caches\transforms-3\19ef781fc9bbbaa45312f6ec4568a439\transformed\work-runtime-2.9.0\AndroidManifest.xml:24:5-79
+31-->[androidx.work:work-runtime:2.9.0] C:\Users\grdop\.gradle\caches\transforms-3\19ef781fc9bbbaa45312f6ec4568a439\transformed\work-runtime-2.9.0\AndroidManifest.xml:24:22-76
+32
+33    <permission
+33-->[androidx.core:core:1.9.0] C:\Users\grdop\.gradle\caches\transforms-3\9e28fb9ab2f9a13dc0e39dfea29dd83f\transformed\core-1.9.0\AndroidManifest.xml:22:5-24:47
+34        android:name="com.smsemailforwarder.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+34-->[androidx.core:core:1.9.0] C:\Users\grdop\.gradle\caches\transforms-3\9e28fb9ab2f9a13dc0e39dfea29dd83f\transformed\core-1.9.0\AndroidManifest.xml:23:9-81
+35        android:protectionLevel="signature" />
+35-->[androidx.core:core:1.9.0] C:\Users\grdop\.gradle\caches\transforms-3\9e28fb9ab2f9a13dc0e39dfea29dd83f\transformed\core-1.9.0\AndroidManifest.xml:24:9-44
+36
+37    <uses-permission android:name="com.smsemailforwarder.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+37-->[androidx.core:core:1.9.0] C:\Users\grdop\.gradle\caches\transforms-3\9e28fb9ab2f9a13dc0e39dfea29dd83f\transformed\core-1.9.0\AndroidManifest.xml:26:5-97
+37-->[androidx.core:core:1.9.0] C:\Users\grdop\.gradle\caches\transforms-3\9e28fb9ab2f9a13dc0e39dfea29dd83f\transformed\core-1.9.0\AndroidManifest.xml:26:22-94
+38
+39    <application
+39-->C:\Users\grdop\sms-email-gateway-android\sms-email-gateway-android\app\src\main\AndroidManifest.xml:25:5-108:19
+40        android:allowBackup="true"
+40-->C:\Users\grdop\sms-email-gateway-android\sms-email-gateway-android\app\src\main\AndroidManifest.xml:26:9-35
+41        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+41-->[androidx.core:core:1.9.0] C:\Users\grdop\.gradle\caches\transforms-3\9e28fb9ab2f9a13dc0e39dfea29dd83f\transformed\core-1.9.0\AndroidManifest.xml:28:18-86
+42        android:dataExtractionRules="@xml/data_extraction_rules"
+42-->C:\Users\grdop\sms-email-gateway-android\sms-email-gateway-android\app\src\main\AndroidManifest.xml:27:9-65
+43        android:extractNativeLibs="false"
+44        android:fullBackupContent="@xml/backup_rules"
+44-->C:\Users\grdop\sms-email-gateway-android\sms-email-gateway-android\app\src\main\AndroidManifest.xml:28:9-54
+45        android:icon="@mipmap/ic_launcher"
+45-->C:\Users\grdop\sms-email-gateway-android\sms-email-gateway-android\app\src\main\AndroidManifest.xml:29:9-43
+46        android:label="@string/app_name"
+46-->C:\Users\grdop\sms-email-gateway-android\sms-email-gateway-android\app\src\main\AndroidManifest.xml:30:9-41
+47        android:roundIcon="@mipmap/ic_launcher_round"
+47-->C:\Users\grdop\sms-email-gateway-android\sms-email-gateway-android\app\src\main\AndroidManifest.xml:31:9-54
+48        android:supportsRtl="true"
+48-->C:\Users\grdop\sms-email-gateway-android\sms-email-gateway-android\app\src\main\AndroidManifest.xml:32:9-35
+49        android:theme="@style/Theme.SMSEmailForwarder" >
+49-->C:\Users\grdop\sms-email-gateway-android\sms-email-gateway-android\app\src\main\AndroidManifest.xml:33:9-55
+50
+51        <!-- Main Activity -->
+52        <activity
+52-->C:\Users\grdop\sms-email-gateway-android\sms-email-gateway-android\app\src\main\AndroidManifest.xml:37:9-45:20
+53            android:name="com.smsemailforwarder.app.MainActivity"
+53-->C:\Users\grdop\sms-email-gateway-android\sms-email-gateway-android\app\src\main\AndroidManifest.xml:38:13-41
+54            android:exported="true"
+54-->C:\Users\grdop\sms-email-gateway-android\sms-email-gateway-android\app\src\main\AndroidManifest.xml:39:13-36
+55            android:theme="@style/Theme.SMSEmailForwarder" >
+55-->C:\Users\grdop\sms-email-gateway-android\sms-email-gateway-android\app\src\main\AndroidManifest.xml:40:13-59
+56            <intent-filter>
+56-->C:\Users\grdop\sms-email-gateway-android\sms-email-gateway-android\app\src\main\AndroidManifest.xml:41:13-44:29
+57                <action android:name="android.intent.action.MAIN" />
+57-->C:\Users\grdop\sms-email-gateway-android\sms-email-gateway-android\app\src\main\AndroidManifest.xml:42:17-69
+57-->C:\Users\grdop\sms-email-gateway-android\sms-email-gateway-android\app\src\main\AndroidManifest.xml:42:25-66
+58
+59                <category android:name="android.intent.category.LAUNCHER" />
+59-->C:\Users\grdop\sms-email-gateway-android\sms-email-gateway-android\app\src\main\AndroidManifest.xml:43:17-77
+59-->C:\Users\grdop\sms-email-gateway-android\sms-email-gateway-android\app\src\main\AndroidManifest.xml:43:27-74
+60            </intent-filter>
+61        </activity>
+62
+63        <!-- Settings Activity -->
+64        <activity
+64-->C:\Users\grdop\sms-email-gateway-android\sms-email-gateway-android\app\src\main\AndroidManifest.xml:48:9-52:58
+65            android:name="com.smsemailforwarder.app.SettingsActivity"
+65-->C:\Users\grdop\sms-email-gateway-android\sms-email-gateway-android\app\src\main\AndroidManifest.xml:49:13-45
+66            android:exported="false"
+66-->C:\Users\grdop\sms-email-gateway-android\sms-email-gateway-android\app\src\main\AndroidManifest.xml:50:13-37
+67            android:label="@string/settings_title"
+67-->C:\Users\grdop\sms-email-gateway-android\sms-email-gateway-android\app\src\main\AndroidManifest.xml:51:13-51
+68            android:parentActivityName="com.smsemailforwarder.app.MainActivity" />
+68-->C:\Users\grdop\sms-email-gateway-android\sms-email-gateway-android\app\src\main\AndroidManifest.xml:52:13-55
+69
+70        <!-- Advanced Settings Activity -->
+71        <activity
+71-->C:\Users\grdop\sms-email-gateway-android\sms-email-gateway-android\app\src\main\AndroidManifest.xml:55:9-59:58
+72            android:name="com.smsemailforwarder.app.AdvancedSettingsActivity"
+72-->C:\Users\grdop\sms-email-gateway-android\sms-email-gateway-android\app\src\main\AndroidManifest.xml:56:13-53
+73            android:exported="false"
+73-->C:\Users\grdop\sms-email-gateway-android\sms-email-gateway-android\app\src\main\AndroidManifest.xml:57:13-37
+74            android:label="Advanced Settings"
+74-->C:\Users\grdop\sms-email-gateway-android\sms-email-gateway-android\app\src\main\AndroidManifest.xml:58:13-46
+75            android:parentActivityName="com.smsemailforwarder.app.MainActivity" />
+75-->C:\Users\grdop\sms-email-gateway-android\sms-email-gateway-android\app\src\main\AndroidManifest.xml:59:13-55
+76
+77        <!-- SMS Receiver -->
+78        <receiver
+78-->C:\Users\grdop\sms-email-gateway-android\sms-email-gateway-android\app\src\main\AndroidManifest.xml:62:9-69:20
+79            android:name="com.smsemailforwarder.app.SmsReceiver"
+79-->C:\Users\grdop\sms-email-gateway-android\sms-email-gateway-android\app\src\main\AndroidManifest.xml:63:13-40
+80            android:enabled="true"
+80-->C:\Users\grdop\sms-email-gateway-android\sms-email-gateway-android\app\src\main\AndroidManifest.xml:64:13-35
+81            android:exported="true" >
+81-->C:\Users\grdop\sms-email-gateway-android\sms-email-gateway-android\app\src\main\AndroidManifest.xml:65:13-36
+82            <intent-filter android:priority="1000" >
+82-->C:\Users\grdop\sms-email-gateway-android\sms-email-gateway-android\app\src\main\AndroidManifest.xml:66:13-68:29
+82-->C:\Users\grdop\sms-email-gateway-android\sms-email-gateway-android\app\src\main\AndroidManifest.xml:66:28-51
+83                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
+83-->C:\Users\grdop\sms-email-gateway-android\sms-email-gateway-android\app\src\main\AndroidManifest.xml:67:17-82
+83-->C:\Users\grdop\sms-email-gateway-android\sms-email-gateway-android\app\src\main\AndroidManifest.xml:67:25-79
+84            </intent-filter>
+85        </receiver>
+86
+87        <!-- Boot Receiver for auto-start -->
+88        <receiver
+88-->C:\Users\grdop\sms-email-gateway-android\sms-email-gateway-android\app\src\main\AndroidManifest.xml:72:9-82:20
+89            android:name="com.smsemailforwarder.app.BootReceiver"
+89-->C:\Users\grdop\sms-email-gateway-android\sms-email-gateway-android\app\src\main\AndroidManifest.xml:73:13-41
+90            android:enabled="true"
+90-->C:\Users\grdop\sms-email-gateway-android\sms-email-gateway-android\app\src\main\AndroidManifest.xml:74:13-35
+91            android:exported="true" >
+91-->C:\Users\grdop\sms-email-gateway-android\sms-email-gateway-android\app\src\main\AndroidManifest.xml:75:13-36
+92            <intent-filter>
+92-->C:\Users\grdop\sms-email-gateway-android\sms-email-gateway-android\app\src\main\AndroidManifest.xml:76:13-81:29
+93                <action android:name="android.intent.action.BOOT_COMPLETED" />
+93-->C:\Users\grdop\sms-email-gateway-android\sms-email-gateway-android\app\src\main\AndroidManifest.xml:77:17-79
+93-->C:\Users\grdop\sms-email-gateway-android\sms-email-gateway-android\app\src\main\AndroidManifest.xml:77:25-76
+94                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+94-->C:\Users\grdop\sms-email-gateway-android\sms-email-gateway-android\app\src\main\AndroidManifest.xml:78:17-84
+94-->C:\Users\grdop\sms-email-gateway-android\sms-email-gateway-android\app\src\main\AndroidManifest.xml:78:25-81
+95                <action android:name="android.intent.action.PACKAGE_REPLACED" />
+95-->C:\Users\grdop\sms-email-gateway-android\sms-email-gateway-android\app\src\main\AndroidManifest.xml:79:17-81
+95-->C:\Users\grdop\sms-email-gateway-android\sms-email-gateway-android\app\src\main\AndroidManifest.xml:79:25-78
+96
+97                <data android:scheme="package" />
+97-->C:\Users\grdop\sms-email-gateway-android\sms-email-gateway-android\app\src\main\AndroidManifest.xml:80:17-50
+97-->C:\Users\grdop\sms-email-gateway-android\sms-email-gateway-android\app\src\main\AndroidManifest.xml:80:23-47
+98            </intent-filter>
+99        </receiver>
+100
+101        <!-- Foreground Service for SMS forwarding -->
+102        <service
+102-->C:\Users\grdop\sms-email-gateway-android\sms-email-gateway-android\app\src\main\AndroidManifest.xml:85:9-89:56
+103            android:name="com.smsemailforwarder.app.ForwarderService"
+103-->C:\Users\grdop\sms-email-gateway-android\sms-email-gateway-android\app\src\main\AndroidManifest.xml:86:13-45
+104            android:enabled="true"
+104-->C:\Users\grdop\sms-email-gateway-android\sms-email-gateway-android\app\src\main\AndroidManifest.xml:87:13-35
+105            android:exported="false"
+105-->C:\Users\grdop\sms-email-gateway-android\sms-email-gateway-android\app\src\main\AndroidManifest.xml:88:13-37
+106            android:foregroundServiceType="dataSync" />
+106-->C:\Users\grdop\sms-email-gateway-android\sms-email-gateway-android\app\src\main\AndroidManifest.xml:89:13-53
+107
+108        <!-- Email Service (IntentService) -->
+109        <service
+109-->C:\Users\grdop\sms-email-gateway-android\sms-email-gateway-android\app\src\main\AndroidManifest.xml:92:9-95:40
+110            android:name="com.smsemailforwarder.app.EmailService"
+110-->C:\Users\grdop\sms-email-gateway-android\sms-email-gateway-android\app\src\main\AndroidManifest.xml:93:13-41
+111            android:enabled="true"
+111-->C:\Users\grdop\sms-email-gateway-android\sms-email-gateway-android\app\src\main\AndroidManifest.xml:94:13-35
+112            android:exported="false" />
+112-->C:\Users\grdop\sms-email-gateway-android\sms-email-gateway-android\app\src\main\AndroidManifest.xml:95:13-37
+113
+114        <!-- FileProvider for sharing configuration files -->
+115        <provider
+116            android:name="androidx.core.content.FileProvider"
+116-->C:\Users\grdop\sms-email-gateway-android\sms-email-gateway-android\app\src\main\AndroidManifest.xml:99:13-62
+117            android:authorities="com.smsemailforwarder.app.fileprovider"
+117-->C:\Users\grdop\sms-email-gateway-android\sms-email-gateway-android\app\src\main\AndroidManifest.xml:100:13-64
+118            android:exported="false"
+118-->C:\Users\grdop\sms-email-gateway-android\sms-email-gateway-android\app\src\main\AndroidManifest.xml:101:13-37
+119            android:grantUriPermissions="true" >
+119-->C:\Users\grdop\sms-email-gateway-android\sms-email-gateway-android\app\src\main\AndroidManifest.xml:102:13-47
+120            <meta-data
+120-->C:\Users\grdop\sms-email-gateway-android\sms-email-gateway-android\app\src\main\AndroidManifest.xml:103:13-105:63
+121                android:name="android.support.FILE_PROVIDER_PATHS"
+121-->C:\Users\grdop\sms-email-gateway-android\sms-email-gateway-android\app\src\main\AndroidManifest.xml:104:17-67
+122                android:resource="@xml/file_provider_paths" />
+122-->C:\Users\grdop\sms-email-gateway-android\sms-email-gateway-android\app\src\main\AndroidManifest.xml:105:17-60
+123        </provider>
+124        <provider
+124-->[androidx.work:work-runtime:2.9.0] C:\Users\grdop\.gradle\caches\transforms-3\19ef781fc9bbbaa45312f6ec4568a439\transformed\work-runtime-2.9.0\AndroidManifest.xml:29:9-37:20
+125            android:name="androidx.startup.InitializationProvider"
+125-->[androidx.work:work-runtime:2.9.0] C:\Users\grdop\.gradle\caches\transforms-3\19ef781fc9bbbaa45312f6ec4568a439\transformed\work-runtime-2.9.0\AndroidManifest.xml:30:13-67
+126            android:authorities="com.smsemailforwarder.app.androidx-startup"
+126-->[androidx.work:work-runtime:2.9.0] C:\Users\grdop\.gradle\caches\transforms-3\19ef781fc9bbbaa45312f6ec4568a439\transformed\work-runtime-2.9.0\AndroidManifest.xml:31:13-68
+127            android:exported="false" >
+127-->[androidx.work:work-runtime:2.9.0] C:\Users\grdop\.gradle\caches\transforms-3\19ef781fc9bbbaa45312f6ec4568a439\transformed\work-runtime-2.9.0\AndroidManifest.xml:32:13-37
+128            <meta-data
+128-->[androidx.work:work-runtime:2.9.0] C:\Users\grdop\.gradle\caches\transforms-3\19ef781fc9bbbaa45312f6ec4568a439\transformed\work-runtime-2.9.0\AndroidManifest.xml:34:13-36:52
+129                android:name="androidx.work.WorkManagerInitializer"
+129-->[androidx.work:work-runtime:2.9.0] C:\Users\grdop\.gradle\caches\transforms-3\19ef781fc9bbbaa45312f6ec4568a439\transformed\work-runtime-2.9.0\AndroidManifest.xml:35:17-68
+130                android:value="androidx.startup" />
+130-->[androidx.work:work-runtime:2.9.0] C:\Users\grdop\.gradle\caches\transforms-3\19ef781fc9bbbaa45312f6ec4568a439\transformed\work-runtime-2.9.0\AndroidManifest.xml:36:17-49
+131            <meta-data
+131-->[androidx.emoji2:emoji2:1.2.0] C:\Users\grdop\.gradle\caches\transforms-3\f101b5aa09efe06357e76a0207277e8a\transformed\emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
+132                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+132-->[androidx.emoji2:emoji2:1.2.0] C:\Users\grdop\.gradle\caches\transforms-3\f101b5aa09efe06357e76a0207277e8a\transformed\emoji2-1.2.0\AndroidManifest.xml:30:17-75
+133                android:value="androidx.startup" />
+133-->[androidx.emoji2:emoji2:1.2.0] C:\Users\grdop\.gradle\caches\transforms-3\f101b5aa09efe06357e76a0207277e8a\transformed\emoji2-1.2.0\AndroidManifest.xml:31:17-49
+134            <meta-data
+134-->[androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\grdop\.gradle\caches\transforms-3\ca9e64debe2ea99ef21b4567fb73b5b6\transformed\lifecycle-process-2.7.0\AndroidManifest.xml:29:13-31:52
+135                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+135-->[androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\grdop\.gradle\caches\transforms-3\ca9e64debe2ea99ef21b4567fb73b5b6\transformed\lifecycle-process-2.7.0\AndroidManifest.xml:30:17-78
+136                android:value="androidx.startup" />
+136-->[androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\grdop\.gradle\caches\transforms-3\ca9e64debe2ea99ef21b4567fb73b5b6\transformed\lifecycle-process-2.7.0\AndroidManifest.xml:31:17-49
+137            <meta-data
+137-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\grdop\.gradle\caches\transforms-3\6040b010d93caf97c9ee8226bdfb69bd\transformed\profileinstaller-1.3.0\AndroidManifest.xml:29:13-31:52
+138                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+138-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\grdop\.gradle\caches\transforms-3\6040b010d93caf97c9ee8226bdfb69bd\transformed\profileinstaller-1.3.0\AndroidManifest.xml:30:17-85
+139                android:value="androidx.startup" />
+139-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\grdop\.gradle\caches\transforms-3\6040b010d93caf97c9ee8226bdfb69bd\transformed\profileinstaller-1.3.0\AndroidManifest.xml:31:17-49
+140        </provider>
+141
+142        <service
+142-->[androidx.work:work-runtime:2.9.0] C:\Users\grdop\.gradle\caches\transforms-3\19ef781fc9bbbaa45312f6ec4568a439\transformed\work-runtime-2.9.0\AndroidManifest.xml:39:9-45:35
+143            android:name="androidx.work.impl.background.systemalarm.SystemAlarmService"
+143-->[androidx.work:work-runtime:2.9.0] C:\Users\grdop\.gradle\caches\transforms-3\19ef781fc9bbbaa45312f6ec4568a439\transformed\work-runtime-2.9.0\AndroidManifest.xml:40:13-88
+144            android:directBootAware="false"
+144-->[androidx.work:work-runtime:2.9.0] C:\Users\grdop\.gradle\caches\transforms-3\19ef781fc9bbbaa45312f6ec4568a439\transformed\work-runtime-2.9.0\AndroidManifest.xml:41:13-44
+145            android:enabled="@bool/enable_system_alarm_service_default"
+145-->[androidx.work:work-runtime:2.9.0] C:\Users\grdop\.gradle\caches\transforms-3\19ef781fc9bbbaa45312f6ec4568a439\transformed\work-runtime-2.9.0\AndroidManifest.xml:42:13-72
+146            android:exported="false" />
+146-->[androidx.work:work-runtime:2.9.0] C:\Users\grdop\.gradle\caches\transforms-3\19ef781fc9bbbaa45312f6ec4568a439\transformed\work-runtime-2.9.0\AndroidManifest.xml:43:13-37
+147        <service
+147-->[androidx.work:work-runtime:2.9.0] C:\Users\grdop\.gradle\caches\transforms-3\19ef781fc9bbbaa45312f6ec4568a439\transformed\work-runtime-2.9.0\AndroidManifest.xml:46:9-52:35
+148            android:name="androidx.work.impl.background.systemjob.SystemJobService"
+148-->[androidx.work:work-runtime:2.9.0] C:\Users\grdop\.gradle\caches\transforms-3\19ef781fc9bbbaa45312f6ec4568a439\transformed\work-runtime-2.9.0\AndroidManifest.xml:47:13-84
+149            android:directBootAware="false"
+149-->[androidx.work:work-runtime:2.9.0] C:\Users\grdop\.gradle\caches\transforms-3\19ef781fc9bbbaa45312f6ec4568a439\transformed\work-runtime-2.9.0\AndroidManifest.xml:48:13-44
+150            android:enabled="@bool/enable_system_job_service_default"
+150-->[androidx.work:work-runtime:2.9.0] C:\Users\grdop\.gradle\caches\transforms-3\19ef781fc9bbbaa45312f6ec4568a439\transformed\work-runtime-2.9.0\AndroidManifest.xml:49:13-70
+151            android:exported="true"
+151-->[androidx.work:work-runtime:2.9.0] C:\Users\grdop\.gradle\caches\transforms-3\19ef781fc9bbbaa45312f6ec4568a439\transformed\work-runtime-2.9.0\AndroidManifest.xml:50:13-36
+152            android:permission="android.permission.BIND_JOB_SERVICE" />
+152-->[androidx.work:work-runtime:2.9.0] C:\Users\grdop\.gradle\caches\transforms-3\19ef781fc9bbbaa45312f6ec4568a439\transformed\work-runtime-2.9.0\AndroidManifest.xml:51:13-69
+153        <service
+153-->[androidx.work:work-runtime:2.9.0] C:\Users\grdop\.gradle\caches\transforms-3\19ef781fc9bbbaa45312f6ec4568a439\transformed\work-runtime-2.9.0\AndroidManifest.xml:53:9-59:35
+154            android:name="androidx.work.impl.foreground.SystemForegroundService"
+154-->[androidx.work:work-runtime:2.9.0] C:\Users\grdop\.gradle\caches\transforms-3\19ef781fc9bbbaa45312f6ec4568a439\transformed\work-runtime-2.9.0\AndroidManifest.xml:54:13-81
+155            android:directBootAware="false"
+155-->[androidx.work:work-runtime:2.9.0] C:\Users\grdop\.gradle\caches\transforms-3\19ef781fc9bbbaa45312f6ec4568a439\transformed\work-runtime-2.9.0\AndroidManifest.xml:55:13-44
+156            android:enabled="@bool/enable_system_foreground_service_default"
+156-->[androidx.work:work-runtime:2.9.0] C:\Users\grdop\.gradle\caches\transforms-3\19ef781fc9bbbaa45312f6ec4568a439\transformed\work-runtime-2.9.0\AndroidManifest.xml:56:13-77
+157            android:exported="false" />
+157-->[androidx.work:work-runtime:2.9.0] C:\Users\grdop\.gradle\caches\transforms-3\19ef781fc9bbbaa45312f6ec4568a439\transformed\work-runtime-2.9.0\AndroidManifest.xml:57:13-37
+158
+159        <receiver
+159-->[androidx.work:work-runtime:2.9.0] C:\Users\grdop\.gradle\caches\transforms-3\19ef781fc9bbbaa45312f6ec4568a439\transformed\work-runtime-2.9.0\AndroidManifest.xml:61:9-66:35
+160            android:name="androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver"
+160-->[androidx.work:work-runtime:2.9.0] C:\Users\grdop\.gradle\caches\transforms-3\19ef781fc9bbbaa45312f6ec4568a439\transformed\work-runtime-2.9.0\AndroidManifest.xml:62:13-88
+161            android:directBootAware="false"
+161-->[androidx.work:work-runtime:2.9.0] C:\Users\grdop\.gradle\caches\transforms-3\19ef781fc9bbbaa45312f6ec4568a439\transformed\work-runtime-2.9.0\AndroidManifest.xml:63:13-44
+162            android:enabled="true"
+162-->[androidx.work:work-runtime:2.9.0] C:\Users\grdop\.gradle\caches\transforms-3\19ef781fc9bbbaa45312f6ec4568a439\transformed\work-runtime-2.9.0\AndroidManifest.xml:64:13-35
+163            android:exported="false" />
+163-->[androidx.work:work-runtime:2.9.0] C:\Users\grdop\.gradle\caches\transforms-3\19ef781fc9bbbaa45312f6ec4568a439\transformed\work-runtime-2.9.0\AndroidManifest.xml:65:13-37
+164        <receiver
+164-->[androidx.work:work-runtime:2.9.0] C:\Users\grdop\.gradle\caches\transforms-3\19ef781fc9bbbaa45312f6ec4568a439\transformed\work-runtime-2.9.0\AndroidManifest.xml:67:9-77:20
+165            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy"
+165-->[androidx.work:work-runtime:2.9.0] C:\Users\grdop\.gradle\caches\transforms-3\19ef781fc9bbbaa45312f6ec4568a439\transformed\work-runtime-2.9.0\AndroidManifest.xml:68:13-106
+166            android:directBootAware="false"
+166-->[androidx.work:work-runtime:2.9.0] C:\Users\grdop\.gradle\caches\transforms-3\19ef781fc9bbbaa45312f6ec4568a439\transformed\work-runtime-2.9.0\AndroidManifest.xml:69:13-44
+167            android:enabled="false"
+167-->[androidx.work:work-runtime:2.9.0] C:\Users\grdop\.gradle\caches\transforms-3\19ef781fc9bbbaa45312f6ec4568a439\transformed\work-runtime-2.9.0\AndroidManifest.xml:70:13-36
+168            android:exported="false" >
+168-->[androidx.work:work-runtime:2.9.0] C:\Users\grdop\.gradle\caches\transforms-3\19ef781fc9bbbaa45312f6ec4568a439\transformed\work-runtime-2.9.0\AndroidManifest.xml:71:13-37
+169            <intent-filter>
+169-->[androidx.work:work-runtime:2.9.0] C:\Users\grdop\.gradle\caches\transforms-3\19ef781fc9bbbaa45312f6ec4568a439\transformed\work-runtime-2.9.0\AndroidManifest.xml:73:13-76:29
+170                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
+170-->[androidx.work:work-runtime:2.9.0] C:\Users\grdop\.gradle\caches\transforms-3\19ef781fc9bbbaa45312f6ec4568a439\transformed\work-runtime-2.9.0\AndroidManifest.xml:74:17-87
+170-->[androidx.work:work-runtime:2.9.0] C:\Users\grdop\.gradle\caches\transforms-3\19ef781fc9bbbaa45312f6ec4568a439\transformed\work-runtime-2.9.0\AndroidManifest.xml:74:25-84
+171                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
+171-->[androidx.work:work-runtime:2.9.0] C:\Users\grdop\.gradle\caches\transforms-3\19ef781fc9bbbaa45312f6ec4568a439\transformed\work-runtime-2.9.0\AndroidManifest.xml:75:17-90
+171-->[androidx.work:work-runtime:2.9.0] C:\Users\grdop\.gradle\caches\transforms-3\19ef781fc9bbbaa45312f6ec4568a439\transformed\work-runtime-2.9.0\AndroidManifest.xml:75:25-87
+172            </intent-filter>
+173        </receiver>
+174        <receiver
+174-->[androidx.work:work-runtime:2.9.0] C:\Users\grdop\.gradle\caches\transforms-3\19ef781fc9bbbaa45312f6ec4568a439\transformed\work-runtime-2.9.0\AndroidManifest.xml:78:9-88:20
+175            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy"
+175-->[androidx.work:work-runtime:2.9.0] C:\Users\grdop\.gradle\caches\transforms-3\19ef781fc9bbbaa45312f6ec4568a439\transformed\work-runtime-2.9.0\AndroidManifest.xml:79:13-104
+176            android:directBootAware="false"
+176-->[androidx.work:work-runtime:2.9.0] C:\Users\grdop\.gradle\caches\transforms-3\19ef781fc9bbbaa45312f6ec4568a439\transformed\work-runtime-2.9.0\AndroidManifest.xml:80:13-44
+177            android:enabled="false"
+177-->[androidx.work:work-runtime:2.9.0] C:\Users\grdop\.gradle\caches\transforms-3\19ef781fc9bbbaa45312f6ec4568a439\transformed\work-runtime-2.9.0\AndroidManifest.xml:81:13-36
+178            android:exported="false" >
+178-->[androidx.work:work-runtime:2.9.0] C:\Users\grdop\.gradle\caches\transforms-3\19ef781fc9bbbaa45312f6ec4568a439\transformed\work-runtime-2.9.0\AndroidManifest.xml:82:13-37
+179            <intent-filter>
+179-->[androidx.work:work-runtime:2.9.0] C:\Users\grdop\.gradle\caches\transforms-3\19ef781fc9bbbaa45312f6ec4568a439\transformed\work-runtime-2.9.0\AndroidManifest.xml:84:13-87:29
+180                <action android:name="android.intent.action.BATTERY_OKAY" />
+180-->[androidx.work:work-runtime:2.9.0] C:\Users\grdop\.gradle\caches\transforms-3\19ef781fc9bbbaa45312f6ec4568a439\transformed\work-runtime-2.9.0\AndroidManifest.xml:85:17-77
+180-->[androidx.work:work-runtime:2.9.0] C:\Users\grdop\.gradle\caches\transforms-3\19ef781fc9bbbaa45312f6ec4568a439\transformed\work-runtime-2.9.0\AndroidManifest.xml:85:25-74
+181                <action android:name="android.intent.action.BATTERY_LOW" />
+181-->[androidx.work:work-runtime:2.9.0] C:\Users\grdop\.gradle\caches\transforms-3\19ef781fc9bbbaa45312f6ec4568a439\transformed\work-runtime-2.9.0\AndroidManifest.xml:86:17-76
+181-->[androidx.work:work-runtime:2.9.0] C:\Users\grdop\.gradle\caches\transforms-3\19ef781fc9bbbaa45312f6ec4568a439\transformed\work-runtime-2.9.0\AndroidManifest.xml:86:25-73
+182            </intent-filter>
+183        </receiver>
+184        <receiver
+184-->[androidx.work:work-runtime:2.9.0] C:\Users\grdop\.gradle\caches\transforms-3\19ef781fc9bbbaa45312f6ec4568a439\transformed\work-runtime-2.9.0\AndroidManifest.xml:89:9-99:20
+185            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy"
+185-->[androidx.work:work-runtime:2.9.0] C:\Users\grdop\.gradle\caches\transforms-3\19ef781fc9bbbaa45312f6ec4568a439\transformed\work-runtime-2.9.0\AndroidManifest.xml:90:13-104
+186            android:directBootAware="false"
+186-->[androidx.work:work-runtime:2.9.0] C:\Users\grdop\.gradle\caches\transforms-3\19ef781fc9bbbaa45312f6ec4568a439\transformed\work-runtime-2.9.0\AndroidManifest.xml:91:13-44
+187            android:enabled="false"
+187-->[androidx.work:work-runtime:2.9.0] C:\Users\grdop\.gradle\caches\transforms-3\19ef781fc9bbbaa45312f6ec4568a439\transformed\work-runtime-2.9.0\AndroidManifest.xml:92:13-36
+188            android:exported="false" >
+188-->[androidx.work:work-runtime:2.9.0] C:\Users\grdop\.gradle\caches\transforms-3\19ef781fc9bbbaa45312f6ec4568a439\transformed\work-runtime-2.9.0\AndroidManifest.xml:93:13-37
+189            <intent-filter>
+189-->[androidx.work:work-runtime:2.9.0] C:\Users\grdop\.gradle\caches\transforms-3\19ef781fc9bbbaa45312f6ec4568a439\transformed\work-runtime-2.9.0\AndroidManifest.xml:95:13-98:29
+190                <action android:name="android.intent.action.DEVICE_STORAGE_LOW" />
+190-->[androidx.work:work-runtime:2.9.0] C:\Users\grdop\.gradle\caches\transforms-3\19ef781fc9bbbaa45312f6ec4568a439\transformed\work-runtime-2.9.0\AndroidManifest.xml:96:17-83
+190-->[androidx.work:work-runtime:2.9.0] C:\Users\grdop\.gradle\caches\transforms-3\19ef781fc9bbbaa45312f6ec4568a439\transformed\work-runtime-2.9.0\AndroidManifest.xml:96:25-80
+191                <action android:name="android.intent.action.DEVICE_STORAGE_OK" />
+191-->[androidx.work:work-runtime:2.9.0] C:\Users\grdop\.gradle\caches\transforms-3\19ef781fc9bbbaa45312f6ec4568a439\transformed\work-runtime-2.9.0\AndroidManifest.xml:97:17-82
+191-->[androidx.work:work-runtime:2.9.0] C:\Users\grdop\.gradle\caches\transforms-3\19ef781fc9bbbaa45312f6ec4568a439\transformed\work-runtime-2.9.0\AndroidManifest.xml:97:25-79
+192            </intent-filter>
+193        </receiver>
+194        <receiver
+194-->[androidx.work:work-runtime:2.9.0] C:\Users\grdop\.gradle\caches\transforms-3\19ef781fc9bbbaa45312f6ec4568a439\transformed\work-runtime-2.9.0\AndroidManifest.xml:100:9-109:20
+195            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy"
+195-->[androidx.work:work-runtime:2.9.0] C:\Users\grdop\.gradle\caches\transforms-3\19ef781fc9bbbaa45312f6ec4568a439\transformed\work-runtime-2.9.0\AndroidManifest.xml:101:13-103
+196            android:directBootAware="false"
+196-->[androidx.work:work-runtime:2.9.0] C:\Users\grdop\.gradle\caches\transforms-3\19ef781fc9bbbaa45312f6ec4568a439\transformed\work-runtime-2.9.0\AndroidManifest.xml:102:13-44
+197            android:enabled="false"
+197-->[androidx.work:work-runtime:2.9.0] C:\Users\grdop\.gradle\caches\transforms-3\19ef781fc9bbbaa45312f6ec4568a439\transformed\work-runtime-2.9.0\AndroidManifest.xml:103:13-36
+198            android:exported="false" >
+198-->[androidx.work:work-runtime:2.9.0] C:\Users\grdop\.gradle\caches\transforms-3\19ef781fc9bbbaa45312f6ec4568a439\transformed\work-runtime-2.9.0\AndroidManifest.xml:104:13-37
+199            <intent-filter>
+199-->[androidx.work:work-runtime:2.9.0] C:\Users\grdop\.gradle\caches\transforms-3\19ef781fc9bbbaa45312f6ec4568a439\transformed\work-runtime-2.9.0\AndroidManifest.xml:106:13-108:29
+200                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+200-->[androidx.work:work-runtime:2.9.0] C:\Users\grdop\.gradle\caches\transforms-3\19ef781fc9bbbaa45312f6ec4568a439\transformed\work-runtime-2.9.0\AndroidManifest.xml:107:17-79
+200-->[androidx.work:work-runtime:2.9.0] C:\Users\grdop\.gradle\caches\transforms-3\19ef781fc9bbbaa45312f6ec4568a439\transformed\work-runtime-2.9.0\AndroidManifest.xml:107:25-76
+201            </intent-filter>
+202        </receiver>
+203        <receiver
+203-->[androidx.work:work-runtime:2.9.0] C:\Users\grdop\.gradle\caches\transforms-3\19ef781fc9bbbaa45312f6ec4568a439\transformed\work-runtime-2.9.0\AndroidManifest.xml:110:9-121:20
+204            android:name="androidx.work.impl.background.systemalarm.RescheduleReceiver"
+204-->[androidx.work:work-runtime:2.9.0] C:\Users\grdop\.gradle\caches\transforms-3\19ef781fc9bbbaa45312f6ec4568a439\transformed\work-runtime-2.9.0\AndroidManifest.xml:111:13-88
+205            android:directBootAware="false"
+205-->[androidx.work:work-runtime:2.9.0] C:\Users\grdop\.gradle\caches\transforms-3\19ef781fc9bbbaa45312f6ec4568a439\transformed\work-runtime-2.9.0\AndroidManifest.xml:112:13-44
+206            android:enabled="false"
+206-->[androidx.work:work-runtime:2.9.0] C:\Users\grdop\.gradle\caches\transforms-3\19ef781fc9bbbaa45312f6ec4568a439\transformed\work-runtime-2.9.0\AndroidManifest.xml:113:13-36
+207            android:exported="false" >
+207-->[androidx.work:work-runtime:2.9.0] C:\Users\grdop\.gradle\caches\transforms-3\19ef781fc9bbbaa45312f6ec4568a439\transformed\work-runtime-2.9.0\AndroidManifest.xml:114:13-37
+208            <intent-filter>
+208-->[androidx.work:work-runtime:2.9.0] C:\Users\grdop\.gradle\caches\transforms-3\19ef781fc9bbbaa45312f6ec4568a439\transformed\work-runtime-2.9.0\AndroidManifest.xml:116:13-120:29
+209                <action android:name="android.intent.action.BOOT_COMPLETED" />
+209-->C:\Users\grdop\sms-email-gateway-android\sms-email-gateway-android\app\src\main\AndroidManifest.xml:77:17-79
+209-->C:\Users\grdop\sms-email-gateway-android\sms-email-gateway-android\app\src\main\AndroidManifest.xml:77:25-76
+210                <action android:name="android.intent.action.TIME_SET" />
+210-->[androidx.work:work-runtime:2.9.0] C:\Users\grdop\.gradle\caches\transforms-3\19ef781fc9bbbaa45312f6ec4568a439\transformed\work-runtime-2.9.0\AndroidManifest.xml:118:17-73
+210-->[androidx.work:work-runtime:2.9.0] C:\Users\grdop\.gradle\caches\transforms-3\19ef781fc9bbbaa45312f6ec4568a439\transformed\work-runtime-2.9.0\AndroidManifest.xml:118:25-70
+211                <action android:name="android.intent.action.TIMEZONE_CHANGED" />
+211-->[androidx.work:work-runtime:2.9.0] C:\Users\grdop\.gradle\caches\transforms-3\19ef781fc9bbbaa45312f6ec4568a439\transformed\work-runtime-2.9.0\AndroidManifest.xml:119:17-81
+211-->[androidx.work:work-runtime:2.9.0] C:\Users\grdop\.gradle\caches\transforms-3\19ef781fc9bbbaa45312f6ec4568a439\transformed\work-runtime-2.9.0\AndroidManifest.xml:119:25-78
+212            </intent-filter>
+213        </receiver>
+214        <receiver
+214-->[androidx.work:work-runtime:2.9.0] C:\Users\grdop\.gradle\caches\transforms-3\19ef781fc9bbbaa45312f6ec4568a439\transformed\work-runtime-2.9.0\AndroidManifest.xml:122:9-131:20
+215            android:name="androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver"
+215-->[androidx.work:work-runtime:2.9.0] C:\Users\grdop\.gradle\caches\transforms-3\19ef781fc9bbbaa45312f6ec4568a439\transformed\work-runtime-2.9.0\AndroidManifest.xml:123:13-99
+216            android:directBootAware="false"
+216-->[androidx.work:work-runtime:2.9.0] C:\Users\grdop\.gradle\caches\transforms-3\19ef781fc9bbbaa45312f6ec4568a439\transformed\work-runtime-2.9.0\AndroidManifest.xml:124:13-44
+217            android:enabled="@bool/enable_system_alarm_service_default"
+217-->[androidx.work:work-runtime:2.9.0] C:\Users\grdop\.gradle\caches\transforms-3\19ef781fc9bbbaa45312f6ec4568a439\transformed\work-runtime-2.9.0\AndroidManifest.xml:125:13-72
+218            android:exported="false" >
+218-->[androidx.work:work-runtime:2.9.0] C:\Users\grdop\.gradle\caches\transforms-3\19ef781fc9bbbaa45312f6ec4568a439\transformed\work-runtime-2.9.0\AndroidManifest.xml:126:13-37
+219            <intent-filter>
+219-->[androidx.work:work-runtime:2.9.0] C:\Users\grdop\.gradle\caches\transforms-3\19ef781fc9bbbaa45312f6ec4568a439\transformed\work-runtime-2.9.0\AndroidManifest.xml:128:13-130:29
+220                <action android:name="androidx.work.impl.background.systemalarm.UpdateProxies" />
+220-->[androidx.work:work-runtime:2.9.0] C:\Users\grdop\.gradle\caches\transforms-3\19ef781fc9bbbaa45312f6ec4568a439\transformed\work-runtime-2.9.0\AndroidManifest.xml:129:17-98
+220-->[androidx.work:work-runtime:2.9.0] C:\Users\grdop\.gradle\caches\transforms-3\19ef781fc9bbbaa45312f6ec4568a439\transformed\work-runtime-2.9.0\AndroidManifest.xml:129:25-95
+221            </intent-filter>
+222        </receiver>
+223        <receiver
+223-->[androidx.work:work-runtime:2.9.0] C:\Users\grdop\.gradle\caches\transforms-3\19ef781fc9bbbaa45312f6ec4568a439\transformed\work-runtime-2.9.0\AndroidManifest.xml:132:9-142:20
+224            android:name="androidx.work.impl.diagnostics.DiagnosticsReceiver"
+224-->[androidx.work:work-runtime:2.9.0] C:\Users\grdop\.gradle\caches\transforms-3\19ef781fc9bbbaa45312f6ec4568a439\transformed\work-runtime-2.9.0\AndroidManifest.xml:133:13-78
+225            android:directBootAware="false"
+225-->[androidx.work:work-runtime:2.9.0] C:\Users\grdop\.gradle\caches\transforms-3\19ef781fc9bbbaa45312f6ec4568a439\transformed\work-runtime-2.9.0\AndroidManifest.xml:134:13-44
+226            android:enabled="true"
+226-->[androidx.work:work-runtime:2.9.0] C:\Users\grdop\.gradle\caches\transforms-3\19ef781fc9bbbaa45312f6ec4568a439\transformed\work-runtime-2.9.0\AndroidManifest.xml:135:13-35
+227            android:exported="true"
+227-->[androidx.work:work-runtime:2.9.0] C:\Users\grdop\.gradle\caches\transforms-3\19ef781fc9bbbaa45312f6ec4568a439\transformed\work-runtime-2.9.0\AndroidManifest.xml:136:13-36
+228            android:permission="android.permission.DUMP" >
+228-->[androidx.work:work-runtime:2.9.0] C:\Users\grdop\.gradle\caches\transforms-3\19ef781fc9bbbaa45312f6ec4568a439\transformed\work-runtime-2.9.0\AndroidManifest.xml:137:13-57
+229            <intent-filter>
+229-->[androidx.work:work-runtime:2.9.0] C:\Users\grdop\.gradle\caches\transforms-3\19ef781fc9bbbaa45312f6ec4568a439\transformed\work-runtime-2.9.0\AndroidManifest.xml:139:13-141:29
+230                <action android:name="androidx.work.diagnostics.REQUEST_DIAGNOSTICS" />
+230-->[androidx.work:work-runtime:2.9.0] C:\Users\grdop\.gradle\caches\transforms-3\19ef781fc9bbbaa45312f6ec4568a439\transformed\work-runtime-2.9.0\AndroidManifest.xml:140:17-88
+230-->[androidx.work:work-runtime:2.9.0] C:\Users\grdop\.gradle\caches\transforms-3\19ef781fc9bbbaa45312f6ec4568a439\transformed\work-runtime-2.9.0\AndroidManifest.xml:140:25-85
+231            </intent-filter>
+232        </receiver>
+233
+234        <uses-library
+234-->[androidx.window:window:1.0.0] C:\Users\grdop\.gradle\caches\transforms-3\057069517372b9609be4ba9765e63ac5\transformed\window-1.0.0\AndroidManifest.xml:25:9-27:40
+235            android:name="androidx.window.extensions"
+235-->[androidx.window:window:1.0.0] C:\Users\grdop\.gradle\caches\transforms-3\057069517372b9609be4ba9765e63ac5\transformed\window-1.0.0\AndroidManifest.xml:26:13-54
+236            android:required="false" />
+236-->[androidx.window:window:1.0.0] C:\Users\grdop\.gradle\caches\transforms-3\057069517372b9609be4ba9765e63ac5\transformed\window-1.0.0\AndroidManifest.xml:27:13-37
+237        <uses-library
+237-->[androidx.window:window:1.0.0] C:\Users\grdop\.gradle\caches\transforms-3\057069517372b9609be4ba9765e63ac5\transformed\window-1.0.0\AndroidManifest.xml:28:9-30:40
+238            android:name="androidx.window.sidecar"
+238-->[androidx.window:window:1.0.0] C:\Users\grdop\.gradle\caches\transforms-3\057069517372b9609be4ba9765e63ac5\transformed\window-1.0.0\AndroidManifest.xml:29:13-51
+239            android:required="false" />
+239-->[androidx.window:window:1.0.0] C:\Users\grdop\.gradle\caches\transforms-3\057069517372b9609be4ba9765e63ac5\transformed\window-1.0.0\AndroidManifest.xml:30:13-37
+240
+241        <receiver
+241-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\grdop\.gradle\caches\transforms-3\6040b010d93caf97c9ee8226bdfb69bd\transformed\profileinstaller-1.3.0\AndroidManifest.xml:34:9-52:20
+242            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+242-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\grdop\.gradle\caches\transforms-3\6040b010d93caf97c9ee8226bdfb69bd\transformed\profileinstaller-1.3.0\AndroidManifest.xml:35:13-76
+243            android:directBootAware="false"
+243-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\grdop\.gradle\caches\transforms-3\6040b010d93caf97c9ee8226bdfb69bd\transformed\profileinstaller-1.3.0\AndroidManifest.xml:36:13-44
+244            android:enabled="true"
+244-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\grdop\.gradle\caches\transforms-3\6040b010d93caf97c9ee8226bdfb69bd\transformed\profileinstaller-1.3.0\AndroidManifest.xml:37:13-35
+245            android:exported="true"
+245-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\grdop\.gradle\caches\transforms-3\6040b010d93caf97c9ee8226bdfb69bd\transformed\profileinstaller-1.3.0\AndroidManifest.xml:38:13-36
+246            android:permission="android.permission.DUMP" >
+246-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\grdop\.gradle\caches\transforms-3\6040b010d93caf97c9ee8226bdfb69bd\transformed\profileinstaller-1.3.0\AndroidManifest.xml:39:13-57
+247            <intent-filter>
+247-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\grdop\.gradle\caches\transforms-3\6040b010d93caf97c9ee8226bdfb69bd\transformed\profileinstaller-1.3.0\AndroidManifest.xml:40:13-42:29
+248                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+248-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\grdop\.gradle\caches\transforms-3\6040b010d93caf97c9ee8226bdfb69bd\transformed\profileinstaller-1.3.0\AndroidManifest.xml:41:17-91
+248-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\grdop\.gradle\caches\transforms-3\6040b010d93caf97c9ee8226bdfb69bd\transformed\profileinstaller-1.3.0\AndroidManifest.xml:41:25-88
+249            </intent-filter>
+250            <intent-filter>
+250-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\grdop\.gradle\caches\transforms-3\6040b010d93caf97c9ee8226bdfb69bd\transformed\profileinstaller-1.3.0\AndroidManifest.xml:43:13-45:29
+251                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+251-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\grdop\.gradle\caches\transforms-3\6040b010d93caf97c9ee8226bdfb69bd\transformed\profileinstaller-1.3.0\AndroidManifest.xml:44:17-85
+251-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\grdop\.gradle\caches\transforms-3\6040b010d93caf97c9ee8226bdfb69bd\transformed\profileinstaller-1.3.0\AndroidManifest.xml:44:25-82
+252            </intent-filter>
+253            <intent-filter>
+253-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\grdop\.gradle\caches\transforms-3\6040b010d93caf97c9ee8226bdfb69bd\transformed\profileinstaller-1.3.0\AndroidManifest.xml:46:13-48:29
+254                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+254-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\grdop\.gradle\caches\transforms-3\6040b010d93caf97c9ee8226bdfb69bd\transformed\profileinstaller-1.3.0\AndroidManifest.xml:47:17-88
+254-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\grdop\.gradle\caches\transforms-3\6040b010d93caf97c9ee8226bdfb69bd\transformed\profileinstaller-1.3.0\AndroidManifest.xml:47:25-85
+255            </intent-filter>
+256            <intent-filter>
+256-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\grdop\.gradle\caches\transforms-3\6040b010d93caf97c9ee8226bdfb69bd\transformed\profileinstaller-1.3.0\AndroidManifest.xml:49:13-51:29
+257                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+257-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\grdop\.gradle\caches\transforms-3\6040b010d93caf97c9ee8226bdfb69bd\transformed\profileinstaller-1.3.0\AndroidManifest.xml:50:17-95
+257-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\grdop\.gradle\caches\transforms-3\6040b010d93caf97c9ee8226bdfb69bd\transformed\profileinstaller-1.3.0\AndroidManifest.xml:50:25-92
+258            </intent-filter>
+259        </receiver>
+260
+261        <service
+261-->[androidx.room:room-runtime:2.5.0] C:\Users\grdop\.gradle\caches\transforms-3\14fb2498363212b1c4d2d6324967944f\transformed\room-runtime-2.5.0\AndroidManifest.xml:24:9-28:63
+262            android:name="androidx.room.MultiInstanceInvalidationService"
+262-->[androidx.room:room-runtime:2.5.0] C:\Users\grdop\.gradle\caches\transforms-3\14fb2498363212b1c4d2d6324967944f\transformed\room-runtime-2.5.0\AndroidManifest.xml:25:13-74
+263            android:directBootAware="true"
+263-->[androidx.room:room-runtime:2.5.0] C:\Users\grdop\.gradle\caches\transforms-3\14fb2498363212b1c4d2d6324967944f\transformed\room-runtime-2.5.0\AndroidManifest.xml:26:13-43
+264            android:exported="false" />
+264-->[androidx.room:room-runtime:2.5.0] C:\Users\grdop\.gradle\caches\transforms-3\14fb2498363212b1c4d2d6324967944f\transformed\room-runtime-2.5.0\AndroidManifest.xml:27:13-37
+265    </application>
+266
+267</manifest>
