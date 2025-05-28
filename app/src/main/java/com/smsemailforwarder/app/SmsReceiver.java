@@ -10,11 +10,13 @@ import android.util.Log;
 import com.smsemailforwarder.app.utils.NotificationHelper;
 import com.smsemailforwarder.app.utils.PreferencesManager;
 import com.smsemailforwarder.app.utils.SmsFormatter;
+import com.smsemailforwarder.app.utils.SmsFilter;
 
 /**
- * Broadcast receiver for incoming SMS messages
- * Handles SMS reception, parsing, and forwarding to EmailService
+ * Enhanced broadcast receiver for incoming SMS messages
+ * Handles SMS reception, filtering, parsing, and forwarding to EmailService
  * Supports Croatian carriers: A1, HT (Hrvatski Telekom), Tele2
+ * Includes advanced filtering capabilities for spam and unwanted messages
  */
 public class SmsReceiver extends BroadcastReceiver {
     
@@ -108,9 +110,32 @@ public class SmsReceiver extends BroadcastReceiver {
                 return;
             }
             
+            // Apply SMS filtering
+            SmsFilter smsFilter = new SmsFilter(context);
+            if (!smsFilter.shouldForwardMessage(cleanSender, messageContent)) {
+                Log.i(TAG, "SMS filtered out - not forwarding");
+                
+                // Show notification that message was filtered (if enabled)
+                if (preferencesManager.isNotificationEnabled()) {
+                    NotificationHelper notificationHelper = new NotificationHelper(context);
+                    notificationHelper.showInfoNotification(
+                        "SMS Filtered", 
+                        "Message from " + cleanSender + " was filtered and not forwarded"
+                    );
+                }
+                
+                // Log filtering details in debug mode
+                if (preferencesManager.isDebugMode()) {
+                    SmsFilter.FilterResult filterResult = smsFilter.testMessage(cleanSender, messageContent);
+                    Log.d(TAG, "Filter result: " + filterResult.toString());
+                }
+                
+                return;
+            }
+            
             // Log the SMS details (for debugging)
             String carrier = SmsFormatter.detectCarrier(cleanSender);
-            Log.i(TAG, "SMS parsed successfully:");
+            Log.i(TAG, "SMS parsed successfully and passed filters:");
             Log.i(TAG, "  Sender: " + cleanSender + " (" + carrier + ")");
             Log.i(TAG, "  Timestamp: " + SmsFormatter.formatTimestamp(timestamp, "yyyy-MM-dd HH:mm:ss"));
             Log.i(TAG, "  Message length: " + messageContent.length() + " characters");
@@ -118,11 +143,18 @@ public class SmsReceiver extends BroadcastReceiver {
                   (messageContent.length() > 50 ? 
                    messageContent.substring(0, 50) + "..." : messageContent));
             
-            // Show notification that SMS was received
-            NotificationHelper notificationHelper = new NotificationHelper(context);
-            String messagePreview = messageContent.length() > 30 ? 
-                                  messageContent.substring(0, 30) + "..." : messageContent;
-            notificationHelper.showSmsReceivedNotification(cleanSender, messagePreview);
+            // Show notification that SMS was received (if enabled)
+            if (preferencesManager.isNotificationEnabled()) {
+                NotificationHelper notificationHelper = new NotificationHelper(context);
+                String messagePreview = "";
+                
+                if (preferencesManager.isShowSmsPreview()) {
+                    messagePreview = messageContent.length() > 30 ? 
+                                   messageContent.substring(0, 30) + "..." : messageContent;
+                }
+                
+                notificationHelper.showSmsReceivedNotification(cleanSender, messagePreview);
+            }
             
             // Forward to EmailService
             forwardSmsToEmail(context, cleanSender, messageContent, timestamp);

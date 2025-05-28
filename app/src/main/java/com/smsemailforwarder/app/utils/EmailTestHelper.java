@@ -93,28 +93,74 @@ public class EmailTestHelper {
     }
     
     /**
-     * Gets email configuration summary for debugging
+     * Gets a summary of the current email configuration
      */
     public static String getConfigurationSummary(Context context) {
         PreferencesManager prefs = new PreferencesManager(context);
-        
         StringBuilder summary = new StringBuilder();
+        
         summary.append("Email Configuration Summary:\n");
-        summary.append("═══════════════════════════════════\n");
-        summary.append("Configured: ").append(prefs.isEmailConfigured() ? "Yes" : "No").append("\n");
-        summary.append("SMTP Server: ").append(prefs.getEmailSmtpServer()).append("\n");
-        summary.append("SMTP Port: ").append(prefs.getEmailSmtpPort()).append("\n");
-        summary.append("Username: ").append(maskEmail(prefs.getEmailUsername())).append("\n");
-        summary.append("Recipient: ").append(maskEmail(prefs.getEmailRecipient())).append("\n");
-        summary.append("Use TLS: ").append(prefs.isEmailUseStartTLS() ? "Yes" : "No").append("\n");
-        summary.append("Use SSL: ").append(prefs.isEmailUseSSL() ? "Yes" : "No").append("\n");
-        summary.append("Valid: ").append(validateEmailConfiguration(context) ? "Yes" : "No").append("\n");
+        summary.append("═══════════════════════════════════\n\n");
+        
+        if (!prefs.isEmailConfigured()) {
+            summary.append("❌ Email not configured\n\n");
+            summary.append("Please configure email settings:\n");
+            summary.append("• Sender email address\n");
+            summary.append("• Email password/app password\n");
+            summary.append("• Recipient email address\n");
+            summary.append("• SMTP server settings");
+            return summary.toString();
+        }
+        
+        // Basic configuration
+        String username = prefs.getEmailUsername();
+        String recipient = prefs.getEmailRecipient();
+        String server = prefs.getEmailSmtpServer();
+        int port = prefs.getEmailSmtpPort();
+        boolean useSSL = prefs.getEmailUseSSL();
+        
+        summary.append("✅ Email Configured\n\n");
+        
+        // Sender information
+        summary.append("Sender: ").append(maskEmail(username)).append("\n");
+        summary.append("Recipient: ").append(maskEmail(recipient)).append("\n\n");
+        
+        // Server information
+        summary.append("SMTP Server: ").append(server).append("\n");
+        summary.append("Port: ").append(port).append("\n");
+        summary.append("Encryption: ").append(useSSL ? "SSL/TLS" : "None").append("\n\n");
+        
+        // Provider detection
+        String provider = EmailConfiguration.detectProvider(username);
+        if (provider != null) {
+            summary.append("Provider: ").append(provider).append("\n");
+        }
+        
+        // Validation status
+        summary.append("\nValidation:\n");
+        if (EmailConfiguration.isValidEmail(username)) {
+            summary.append("✅ Sender email format valid\n");
+        } else {
+            summary.append("❌ Sender email format invalid\n");
+        }
+        
+        if (EmailConfiguration.isValidEmail(recipient)) {
+            summary.append("✅ Recipient email format valid\n");
+        } else {
+            summary.append("❌ Recipient email format invalid\n");
+        }
+        
+        if (server != null && !server.isEmpty()) {
+            summary.append("✅ SMTP server configured\n");
+        } else {
+            summary.append("❌ SMTP server not configured\n");
+        }
         
         return summary.toString();
     }
     
     /**
-     * Masks email address for privacy in logs
+     * Masks an email address for privacy
      */
     private static String maskEmail(String email) {
         if (email == null || email.isEmpty()) {

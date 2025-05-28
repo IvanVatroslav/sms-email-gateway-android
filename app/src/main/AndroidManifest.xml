@@ -16,6 +16,11 @@
     
     <!-- Optional: for requesting battery optimization exclusion -->
     <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
+    
+    <!-- File operations for backup/restore functionality -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" 
+        android:maxSdkVersion="28" />
 
     <application
         android:allowBackup="true"
@@ -44,6 +49,13 @@
             android:name=".SettingsActivity"
             android:exported="false"
             android:label="@string/settings_title"
+            android:parentActivityName=".MainActivity" />
+
+        <!-- Advanced Settings Activity -->
+        <activity
+            android:name=".AdvancedSettingsActivity"
+            android:exported="false"
+            android:label="Advanced Settings"
             android:parentActivityName=".MainActivity" />
 
         <!-- SMS Receiver -->
@@ -81,6 +93,17 @@
             android:name=".EmailService"
             android:enabled="true"
             android:exported="false" />
+
+        <!-- FileProvider for sharing configuration files -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_provider_paths" />
+        </provider>
 
     </application>
 
