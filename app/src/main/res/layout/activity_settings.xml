@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".SettingsActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/settings_title"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginBottom="32dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Settings UI will be implemented in Phase 5"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:textStyle="italic" />
+
+    <!-- TODO: Phase 5 Implementation
+         - Email configuration forms
+         - SMTP server selection
+         - Message formatting options
+         - Test email functionality
+         - Croatian language support -->
+
+</LinearLayout> 

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SMS-to-Email Forwarder</string>
+    <string name="settings_title">Settings</string>
+    
+    <!-- Menu items -->
+    <string name="action_settings">Settings</string>
+    
+    <!-- Service notifications -->
+    <string name="service_notification_title">SMS Forwarder Active</string>
+    <string name="service_notification_text">Monitoring SMS messages for forwarding</string>
+    <string name="service_notification_channel_name">SMS Forwarding Service</string>
+    <string name="service_notification_channel_description">Notifications for SMS forwarding service status</string>
+    
+    <!-- Permissions -->
+    <string name="permission_sms_rationale">SMS permissions are required to receive and forward messages</string>
+    <string name="permission_notification_rationale">Notification permission is required for service status updates</string>
+    
+    <!-- Error messages -->
+    <string name="error_email_not_configured">Please configure email settings first</string>
+    <string name="error_sms_permission_denied">SMS permissions are required for the app to function</string>
+    <string name="error_email_send_failed">Failed to send email</string>
+    
+    <!-- Success messages -->
+    <string name="success_service_started">SMS Forwarder Service Started</string>
+    <string name="success_service_stopped">SMS Forwarder Service Stopped</string>
+    <string name="success_test_email_sent">Test email sent successfully</string>
+    
+    <!-- Croatian translations will be added in Phase 5 -->
+</resources> 
