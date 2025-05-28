@@ -22,8 +22,17 @@ An Android application that automatically forwards incoming SMS messages to emai
 - ✅ Notification system for SMS processing
 - ✅ Error handling and logging
 
+**Phase 3: Email Functionality** ✅ **COMPLETED**
+- ✅ Complete EmailService implementation with JavaMail API
+- ✅ SMTP configuration for Gmail, Outlook, Yahoo, and custom servers
+- ✅ Email retry logic with exponential backoff
+- ✅ UTF-8 encoding support for Croatian characters
+- ✅ Email provider configuration presets
+- ✅ Email validation and testing utilities
+- ✅ Test email functionality
+- ✅ Comprehensive error handling and notifications
+
 **Next Phases:**
-- Phase 3: Email Functionality (5-6 hours)
 - Phase 4: Background Service (4-5 hours)
 - Phase 5: User Interface (6-8 hours)
 - Phase 6: Configuration & Preferences (3-4 hours)
@@ -44,9 +53,13 @@ An Android application that automatically forwards incoming SMS messages to emai
 - ✅ **Phone number normalization**
 - ✅ **Message validation and filtering**
 - ✅ **Notification system**
+- ✅ **Complete email sending functionality**
+- ✅ **SMTP server support (Gmail, Outlook, Yahoo, Custom)**
+- ✅ **Email configuration presets**
+- ✅ **Email testing and validation**
+- ✅ **Croatian character encoding (UTF-8)**
 
 ### Planned
-- 🔄 Email configuration and sending (Gmail, Outlook, Custom SMTP)
 - 🔄 Background service for continuous operation
 - 🔄 Simple configuration UI
 - 🔄 Croatian language support
@@ -68,14 +81,16 @@ app/
 │   ├── java/com/smsemailforwarder/app/
 │   │   ├── MainActivity.java              ✅ Status display & controls
 │   │   ├── SmsReceiver.java               ✅ SMS reception & parsing
-│   │   ├── EmailService.java              🔄 Email sending (Phase 3)
+│   │   ├── EmailService.java              ✅ Complete email sending
 │   │   ├── ForwarderService.java          🔄 Background service (Phase 4)
 │   │   ├── SettingsActivity.java          🔄 Configuration UI (Phase 5)
 │   │   ├── BootReceiver.java              ✅ Auto-start on boot
 │   │   └── utils/
 │   │       ├── PreferencesManager.java    ✅ Settings management
 │   │       ├── SmsFormatter.java          ✅ SMS formatting utilities
-│   │       └── NotificationHelper.java    ✅ Notification management
+│   │       ├── NotificationHelper.java    ✅ Notification management
+│   │       ├── EmailConfiguration.java    ✅ Email provider presets
+│   │       └── EmailTestHelper.java       ✅ Email testing utilities
 │   ├── res/
 │   │   ├── layout/
 │   │   │   ├── activity_main.xml          ✅ Main UI layout
@@ -167,13 +182,13 @@ Features Croatian-specific functionality:
 
 ## Development Progress
 
-**Phase 2 Completion Summary:**
-- Total files created: 18 (+3 new utility classes)
-- SMS Reception: ✅ Complete
-- Croatian carrier support: ✅ Complete
-- Message validation: ✅ Complete
-- Notification system: ✅ Complete
-- Error handling: ✅ Complete
+**Phase 3 Completion Summary:**
+- Total files created: 21 (+3 new email utility classes)
+- Email Functionality: ✅ Complete
+- SMTP Support: ✅ Gmail, Outlook, Yahoo, Custom servers
+- Email Testing: ✅ Complete with validation utilities
+- Croatian encoding: ✅ UTF-8 support implemented
+- Error handling: ✅ Comprehensive retry logic
 
 **Current Capabilities:**
 - ✅ Receive and parse SMS messages
@@ -181,9 +196,57 @@ Features Croatian-specific functionality:
 - ✅ Normalize Croatian phone numbers
 - ✅ Validate message content
 - ✅ Show processing notifications
-- ✅ Forward to email service (skeleton)
+- ✅ **Send emails via SMTP with retry logic**
+- ✅ **Support major email providers**
+- ✅ **Test email configuration**
+- ✅ **Format emails with Croatian characters**
 
-**Ready for Phase 3:** Email functionality implementation
+**Ready for Phase 4:** Background service implementation
+
+## Email Provider Support
+
+The app supports the following email providers with pre-configured settings:
+
+### Gmail
+- **Server:** smtp.gmail.com
+- **Port:** 587 (TLS) or 465 (SSL)
+- **Requirements:** App password (not regular password)
+- **Setup:** Enable 2FA → Generate app password
+
+### Outlook/Hotmail
+- **Server:** smtp-mail.outlook.com  
+- **Port:** 587 (TLS)
+- **Requirements:** Regular Microsoft account password
+- **Setup:** May need to enable "Less secure app access"
+
+### Yahoo Mail
+- **Server:** smtp.mail.yahoo.com
+- **Port:** 587 (TLS)
+- **Requirements:** App password
+- **Setup:** Account Security → Generate app password
+
+### Custom SMTP
+- **Configurable:** Any SMTP server
+- **Ports:** 587 (TLS), 465 (SSL), 25 (insecure)
+- **Authentication:** Username/password based
+
+## Email Testing
+
+The app includes comprehensive email testing utilities:
+
+```java
+// Test email configuration
+EmailTestHelper.validateEmailConfiguration(context);
+
+// Send test email
+EmailTestHelper.sendTestEmail(context);
+
+// Send sample SMS email
+EmailTestHelper.sendSampleSmsEmail(context);
+
+// Quick Gmail setup
+EmailTestHelper.setupGmailQuick(context, "user@gmail.com", "apppassword", "recipient@email.com");
+```
 
 ## License
 

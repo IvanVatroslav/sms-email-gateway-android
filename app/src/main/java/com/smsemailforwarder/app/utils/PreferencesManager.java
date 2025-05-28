@@ -99,6 +99,27 @@ public class PreferencesManager {
         return preferences.getBoolean(KEY_USE_SSL, false);
     }
     
+    // Alias methods for EmailService compatibility
+    public String getEmailSmtpServer() {
+        return getSmtpServer();
+    }
+    
+    public int getEmailSmtpPort() {
+        return getSmtpPort();
+    }
+    
+    public String getEmailRecipient() {
+        return getToEmail();
+    }
+    
+    public boolean isEmailUseStartTLS() {
+        return isUseTls();
+    }
+    
+    public boolean isEmailUseSSL() {
+        return isUseSsl();
+    }
+    
     // Service Configuration Methods
     public void setServiceEnabled(boolean enabled) {
         preferences.edit().putBoolean(KEY_SERVICE_ENABLED, enabled).apply();
